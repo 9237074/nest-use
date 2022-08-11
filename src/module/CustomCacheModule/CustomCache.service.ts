@@ -15,7 +15,7 @@ export class CustomCacheService {
     return this.cacheService.set(key, JSON.stringify(value), options);
   }
   async get(key: string) {
-    const cache: string | null = await this.cacheService.get(key);
+    const cache: string | undefined| null = await this.cacheService.get(key);
     return cache ? JSON.parse(cache) : null;
   }
 }
