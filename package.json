@@ -1,6 +1,6 @@
 {
   "name": "nest-use",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,8 @@
     "url": "https://github.com/9237074/nest-use.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc index.ts"
   },
   "keywords": [
     "nestjs",
@@ -18,10 +19,20 @@
   "author": "Cream",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "cache-manager": "^4.1.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@alicloud/dysmsapi20170525": "^2.0.18",
+    "@alicloud/openapi-client": "^0.4.1",
+    "@alicloud/tea-util": "^1.4.4",
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^2.2.0",
+    "@types/node": "^18.7.1",
+    "cache-manager-redis-store": "^2.0.0",
+    "lodash": "^4.17.21",
+    "redis": "3.1.2",
     "rxjs": "^7.5.6"
   }
 }
