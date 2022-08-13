@@ -59,6 +59,7 @@ var AuthModule = /** @class */ (function () {
             imports: [
                 passport_1.PassportModule,
                 jwt_1.JwtModule.registerAsync({
+                    imports: [config_1.ConfigModule],
                     useFactory: function (configService) { return __awaiter(void 0, void 0, void 0, function () {
                         return __generator(this, function (_a) {
                             return [2 /*return*/, ({
