@@ -7,32 +7,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GatewayExceptionFilter = void 0;
-var common_1 = require("@nestjs/common");
-var GatewayExceptionFilter = /** @class */ (function () {
-    function GatewayExceptionFilter() {
-    }
-    GatewayExceptionFilter.prototype.catch = function (exception, host) {
-        var ctx = host.switchToHttp();
-        var response = ctx.getResponse();
-        var request = ctx.getRequest();
-        var message = exception.message || exception;
+const common_1 = require("@nestjs/common");
+let GatewayExceptionFilter = class GatewayExceptionFilter {
+    catch(exception, host) {
+        const ctx = host.switchToHttp();
+        const response = ctx.getResponse();
+        const request = ctx.getRequest();
+        const message = exception.message || exception;
         common_1.Logger.log('GatewayException错误提示', message);
-        var errorResponse = {
+        const errorResponse = {
             message: message,
             code: 500,
             url: request.originalUrl, // 错误的url地址
         };
-        var status = exception instanceof common_1.HttpException
+        const status = exception instanceof common_1.HttpException
             ? exception.getStatus()
             : common_1.HttpStatus.INTERNAL_SERVER_ERROR;
         // 设置返回的状态码、请求头、发送错误信息
         response.status(status);
         response.header('Content-Type', 'application/json; charset=utf-8');
         response.send(errorResponse);
-    };
-    GatewayExceptionFilter = __decorate([
-        common_1.Catch()
-    ], GatewayExceptionFilter);
-    return GatewayExceptionFilter;
-}());
+    }
+};
+GatewayExceptionFilter = __decorate([
+    common_1.Catch()
+], GatewayExceptionFilter);
 exports.GatewayExceptionFilter = GatewayExceptionFilter;

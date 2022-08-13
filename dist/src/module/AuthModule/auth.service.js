@@ -10,24 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
-var common_1 = require("@nestjs/common");
-var jwt_1 = require("@nestjs/jwt");
-var AuthService = /** @class */ (function () {
-    function AuthService(jwtService) {
+const common_1 = require("@nestjs/common");
+const jwt_1 = require("@nestjs/jwt");
+let AuthService = class AuthService {
+    constructor(jwtService) {
         this.jwtService = jwtService;
     }
-    AuthService.prototype.generateToken = function (_a) {
-        var phone = _a.phone, code = _a.code;
-        var payload = { phone: phone, code: code };
-        var access_token = this.jwtService.sign(payload);
+    generateToken({ phone, code }) {
+        const payload = { phone, code };
+        const access_token = this.jwtService.sign(payload);
         return {
-            access_token: access_token,
+            access_token,
         };
-    };
-    AuthService = __decorate([
-        common_1.Injectable(),
-        __metadata("design:paramtypes", [jwt_1.JwtService])
-    ], AuthService);
-    return AuthService;
-}());
+    }
+};
+AuthService = __decorate([
+    common_1.Injectable(),
+    __metadata("design:paramtypes", [jwt_1.JwtService])
+], AuthService);
 exports.AuthService = AuthService;

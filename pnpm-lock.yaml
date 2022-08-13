@@ -20,6 +20,7 @@ specifiers:
   cache-manager: ^4.1.0
   cache-manager-redis-store: ^2.0.0
   lodash: ^4.17.21
+  passport: link:@types/@nestjs/passport
   passport-jwt: ^4.0.0
   passport-local: ^1.0.0
   redis: 3.1.2
@@ -34,7 +35,7 @@ dependencies:
   '@nestjs/config': 2.2.0_xs64hf64efjmugmawhh4noitca
   '@nestjs/core': 9.0.9_xs64hf64efjmugmawhh4noitca
   '@nestjs/jwt': 9.0.0_@nestjs+common@8.4.7
-  '@nestjs/passport': 9.0.0_@nestjs+common@8.4.7
+  '@nestjs/passport': 9.0.0_kj46t6b4nk2zxylljxchwimclu
   '@types/node': 18.7.1
   '@types/passport-local': 1.0.34
   cache-manager-redis-store: 2.0.0
@@ -52,6 +53,7 @@ devDependencies:
   '@types/passport-jwt': 3.0.6
   '@types/redis': 4.0.11
   cache-manager: 4.1.0
+  passport: link:@types/@nestjs/passport
   typescript: 4.7.4
 
 packages:
@@ -220,13 +222,14 @@ packages:
       jsonwebtoken: 8.5.1
     dev: false
 
-  /@nestjs/passport/9.0.0_@nestjs+common@8.4.7:
+  /@nestjs/passport/9.0.0_kj46t6b4nk2zxylljxchwimclu:
     resolution: {integrity: sha512-Gnh8n1wzFPOLSS/94X1sUP4IRAoXTgG4odl7/AO5h+uwscEGXxJFercrZfqdAwkWhqkKWbsntM3j5mRy/6ZQDA==}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0
       passport: ^0.4.0 || ^0.5.0 || ^0.6.0
     dependencies:
       '@nestjs/common': 8.4.7_ead3t5gumbwwwlhkmjmioh2n6a
+      passport: link:@types/@nestjs/passport
     dev: false
 
   /@nuxtjs/opencollective/0.3.2:

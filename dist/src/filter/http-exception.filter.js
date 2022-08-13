@@ -7,33 +7,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HttpExceptionFilter = void 0;
-var common_1 = require("@nestjs/common");
-var HttpExceptionFilter = /** @class */ (function () {
-    function HttpExceptionFilter() {
-    }
-    HttpExceptionFilter.prototype.catch = function (exception, host) {
-        var ctx = host.switchToHttp();
-        var response = ctx.getResponse();
-        var request = ctx.getRequest();
-        var message = exception.message;
+const common_1 = require("@nestjs/common");
+let HttpExceptionFilter = class HttpExceptionFilter {
+    catch(exception, host) {
+        const ctx = host.switchToHttp();
+        const response = ctx.getResponse();
+        const request = ctx.getRequest();
+        const message = exception.message;
         common_1.Logger.log('HttpException错误提示', message);
-        var errorResponse = {
+        const errorResponse = {
             // 获取全部的错误信息
             message: message,
             code: 500,
             url: request.originalUrl, // 错误的url地址
         };
-        var status = exception instanceof common_1.HttpException
+        const status = exception instanceof common_1.HttpException
             ? exception.getStatus()
             : common_1.HttpStatus.INTERNAL_SERVER_ERROR;
         // 设置返回的状态码、请求头、发送错误信息
         response.status(status);
         response.header('Content-Type', 'application/json; charset=utf-8');
         response.send(errorResponse);
-    };
-    HttpExceptionFilter = __decorate([
-        common_1.Catch(common_1.HttpException)
-    ], HttpExceptionFilter);
-    return HttpExceptionFilter;
-}());
+    }
+};
+HttpExceptionFilter = __decorate([
+    common_1.Catch(common_1.HttpException)
+], HttpExceptionFilter);
 exports.HttpExceptionFilter = HttpExceptionFilter;

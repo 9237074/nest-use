@@ -7,12 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AllExceptionFilter = void 0;
-var common_1 = require("@nestjs/common");
-var rxjs_1 = require("rxjs");
-var AllExceptionFilter = /** @class */ (function () {
-    function AllExceptionFilter() {
-    }
-    AllExceptionFilter.prototype.catch = function (exception, host) {
+const common_1 = require("@nestjs/common");
+const rxjs_1 = require("rxjs");
+let AllExceptionFilter = class AllExceptionFilter {
+    catch(exception, host) {
         common_1.Logger.log('AllExceptionFilter错误提示', exception);
         if (exception.message) {
             return rxjs_1.throwError(exception.message);
@@ -20,10 +18,9 @@ var AllExceptionFilter = /** @class */ (function () {
         return rxjs_1.throwError({
             message: exception,
         });
-    };
-    AllExceptionFilter = __decorate([
-        common_1.Catch()
-    ], AllExceptionFilter);
-    return AllExceptionFilter;
-}());
+    }
+};
+AllExceptionFilter = __decorate([
+    common_1.Catch()
+], AllExceptionFilter);
 exports.AllExceptionFilter = AllExceptionFilter;
