@@ -12,3 +12,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./CustomCacheModule/CustomCache.module"), exports);
 __exportStar(require("./CustomCacheModule/CustomCache.service"), exports);
+__exportStar(require("./AuthModule/auth.module"), exports);
+__exportStar(require("./AuthModule/auth.service"), exports);
