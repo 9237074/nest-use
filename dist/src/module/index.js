@@ -14,3 +14,4 @@ __exportStar(require("./CustomCacheModule/CustomCache.module"), exports);
 __exportStar(require("./CustomCacheModule/CustomCache.service"), exports);
 __exportStar(require("./AuthModule/auth.module"), exports);
 __exportStar(require("./AuthModule/auth.service"), exports);
+__exportStar(require("./AuthModule/guards"), exports);
