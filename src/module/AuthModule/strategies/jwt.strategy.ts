@@ -23,8 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: ValidateDto) {
-    const phone = +payload.phone;
-    return { phone };
+  async validate(payload: any) {
+    return payload;
   }
 }
